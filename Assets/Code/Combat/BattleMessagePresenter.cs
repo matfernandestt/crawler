@@ -4,7 +4,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class CombatMessages : MonoBehaviour
+public class BattleMessagePresenter : MonoBehaviour
 {
     [SerializeField] private GameObject messageBox;
     [SerializeField] private TextMeshProUGUI textField;
@@ -30,6 +30,14 @@ public class CombatMessages : MonoBehaviour
         onConfirm?.Invoke();
         messageBox.SetActive(false);
         _activeMessage = false;
+    }
+    
+    public IEnumerator ShowMessage(string message)
+    {
+        var confirmed = false;
+        SetMessage(message, () => confirmed = true);
+
+        while (!confirmed) yield return null;
     }
 
     public void SetMessage(string message, Action confirmMessageAction)

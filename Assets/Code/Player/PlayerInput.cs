@@ -47,8 +47,6 @@ public class PlayerInput : MonoBehaviour
         var combatManager = CombatManager.Instance;
         if (!combatManager.InCombat)
             combatManager.EnterCombat();
-        // else
-        //     combatManager.ExitCombat();
     }
 
     public void SetBlockMovement(bool blockMovement)

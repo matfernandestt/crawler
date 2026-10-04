@@ -5,6 +5,7 @@ using UnityEngine.UI;
 public class GameButton : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI textField;
+    [SerializeField] private Image image;
 
     private Button _btn;
     
@@ -26,5 +27,11 @@ public class GameButton : MonoBehaviour
     public void SetInteractable(bool interactable)
     {
         _btn.interactable = interactable;
+    }
+
+    public void SetImage(Sprite newIcon)
+    {
+        if (image == null) return;
+        image.sprite = newIcon;
     }
 }

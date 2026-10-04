@@ -1,7 +1,6 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class CombatActions : MonoBehaviour
 {
@@ -9,19 +8,16 @@ public class CombatActions : MonoBehaviour
     [SerializeField] private GameButton libraryButton;
     [SerializeField] private GameButton runButton;
 
-    private List<GameButton> _allButtons = new();
+    private readonly List<GameButton> _allButtons = new();
 
-    private const string CombatMessage_Run = "You tried to run.";
-
-    public Action<EncounterActions> OnCompleteAction;
-    public Action OnRunAction;
+    public Action<BattleActionType> OnActionSelected;
 
     private void Awake()
     {
         _allButtons.Add(fightButton);
         _allButtons.Add(libraryButton);
         _allButtons.Add(runButton);
-        
+
         fightButton.Button.onClick.AddListener(Fight);
         libraryButton.Button.onClick.AddListener(Library);
         runButton.Button.onClick.AddListener(Run);
@@ -29,19 +25,17 @@ public class CombatActions : MonoBehaviour
 
     private void Fight()
     {
-        OnCompleteAction?.Invoke(EncounterActions.Fight);
+        OnActionSelected?.Invoke(BattleActionType.Skill);
     }
 
     private void Library()
     {
-        OnCompleteAction?.Invoke(EncounterActions.Library);
+        OnActionSelected?.Invoke(BattleActionType.Item);
     }
 
     private void Run()
     {
-        SetAllButtonsInteractability(false);
-        CombatManager.Instance.messages.SetMessage(CombatMessage_Run, () => { CombatManager.Instance.ExitCombat(); });
-        OnRunAction?.Invoke();
+        OnActionSelected?.Invoke(BattleActionType.Run);
     }
 
     public void SetAllButtonsInteractability(bool interactable)
@@ -51,12 +45,4 @@ public class CombatActions : MonoBehaviour
             button.SetInteractable(interactable);
         }
     }
-}
-
-public enum EncounterActions
-{
-    None,
-    Fight,
-    Library,
-    Run
 }

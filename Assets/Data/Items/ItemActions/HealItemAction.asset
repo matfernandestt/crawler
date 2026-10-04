@@ -9,7 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3ee15db1bfff4bf47a858a3b617c738a, type: 3}
-  m_Name: SkillAction_EvasionBonus
-  m_EditorClassIdentifier: Assembly-CSharp::EvasionBonusSkillAction
-  bonusEvasion: 30
+  m_Script: {fileID: 11500000, guid: ff51fef1449976c478ab6d3416ff501c, type: 3}
+  m_Name: HealItemAction
+  m_EditorClassIdentifier: Assembly-CSharp::HealItemAction
+  healAmount: 20

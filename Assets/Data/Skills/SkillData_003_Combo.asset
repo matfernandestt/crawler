@@ -16,3 +16,5 @@ MonoBehaviour:
   power: 40
   accuracy: 95
   cost: 10
+  priority: 0
+  action: {fileID: 11400000, guid: ee8f55bd5cb8a324c8d6062c22b052d0, type: 2}

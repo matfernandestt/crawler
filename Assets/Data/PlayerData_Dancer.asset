@@ -12,15 +12,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c1cc07eff6045248a4c2dae4d588f50, type: 3}
   m_Name: PlayerData_Dancer
   m_EditorClassIdentifier: Assembly-CSharp::PlayerData
-  health: 300
+  sprite: {fileID: 0}
+  playerName: Dancer
+  health: 100
   mana: 200
   attack: 45
   defense: 45
   specialAttack: 110
   specialDefense: 100
-  evasion: 100
+  evasion: 10
   accuracy: 100
-  availableSkills:
+  speed: 0
+  skills:
   - {fileID: 11400000, guid: 44db763bee556bf42ae9f6a01e8c2ca8, type: 2}
   - {fileID: 11400000, guid: b68aac356ca0a7e4591a7b1bcaf50113, type: 2}
   - {fileID: 11400000, guid: c0dab93e5f520c2468db4ce87bf40ad8, type: 2}

@@ -2,7 +2,7 @@
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "SkillAction", menuName = "Data/SkillAction")]
-public class BaseSkillAction: ScriptableObject
+public abstract class BaseSkillAction : ScriptableObject
 {
-    public virtual void ExecuteAction() { }
+    public abstract void Execute(BattleContext context, Combatant user, Combatant target, SkillData skill);
 }

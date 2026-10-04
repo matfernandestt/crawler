@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: SkillData_001_Harm
   m_EditorClassIdentifier: Assembly-CSharp::SkillData
   skillName: Harm
-  power: 70
+  power: 10
   accuracy: 100
-  cost: 15
+  cost: 0
+  priority: 0
+  action: {fileID: 11400000, guid: cc3a2aab854e659438a9060e423f599b, type: 2}
