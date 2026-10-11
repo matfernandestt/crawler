@@ -10,10 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2a7e3f6e8ab93054f9611046f370cda7, type: 3}
-  m_Name: SkillData_002_Dance
+  m_Name: SkillData_002_Sleep
   m_EditorClassIdentifier: Assembly-CSharp::SkillData
-  skillName: Dance
+  skillName: Sleep
   power: 0
   accuracy: 100
   cost: 10
+  priority: 0
   action: {fileID: 11400000, guid: b99745dbd7df5e64eaf2d763ba99f81c, type: 2}
