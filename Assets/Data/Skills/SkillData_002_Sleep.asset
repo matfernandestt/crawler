@@ -15,6 +15,6 @@ MonoBehaviour:
   skillName: Sleep
   power: 0
   accuracy: 100
-  cost: 10
+  cost: 20
   priority: 0
   action: {fileID: 11400000, guid: b99745dbd7df5e64eaf2d763ba99f81c, type: 2}
