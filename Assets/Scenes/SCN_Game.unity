@@ -13782,11 +13782,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 505715822343382109, guid: 8deaf08e5f5c3f2488d5cc56a48363cc, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.44
+      value: -2.9
       objectReference: {fileID: 0}
     - target: {fileID: 505715822343382109, guid: 8deaf08e5f5c3f2488d5cc56a48363cc, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.043483
+      value: -0.21
       objectReference: {fileID: 0}
     - target: {fileID: 505715822343382109, guid: 8deaf08e5f5c3f2488d5cc56a48363cc, type: 3}
       propertyPath: m_LocalRotation.w
@@ -13823,6 +13823,46 @@ PrefabInstance:
     - target: {fileID: 887061177696403175, guid: 8deaf08e5f5c3f2488d5cc56a48363cc, type: 3}
       propertyPath: m_Name
       value: PRF_Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 2465802303973269532, guid: 8deaf08e5f5c3f2488d5cc56a48363cc, type: 3}
+      propertyPath: m_Intensity
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 2465802303973269532, guid: 8deaf08e5f5c3f2488d5cc56a48363cc, type: 3}
+      propertyPath: m_ColorTemperature
+      value: 7386
+      objectReference: {fileID: 0}
+    - target: {fileID: 2465802303973269532, guid: 8deaf08e5f5c3f2488d5cc56a48363cc, type: 3}
+      propertyPath: m_UseColorTemperature
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6093850986497129672, guid: 8deaf08e5f5c3f2488d5cc56a48363cc, type: 3}
+      propertyPath: m_StaticShadowCaster
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6729808686793003369, guid: 8deaf08e5f5c3f2488d5cc56a48363cc, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.00283
+      objectReference: {fileID: 0}
+    - target: {fileID: 6729808686793003369, guid: 8deaf08e5f5c3f2488d5cc56a48363cc, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.01816
+      objectReference: {fileID: 0}
+    - target: {fileID: 6729808686793003369, guid: 8deaf08e5f5c3f2488d5cc56a48363cc, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.00429
+      objectReference: {fileID: 0}
+    - target: {fileID: 8738360216554357768, guid: 8deaf08e5f5c3f2488d5cc56a48363cc, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.027
+      objectReference: {fileID: 0}
+    - target: {fileID: 8738360216554357768, guid: 8deaf08e5f5c3f2488d5cc56a48363cc, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.795
+      objectReference: {fileID: 0}
+    - target: {fileID: 8738360216554357768, guid: 8deaf08e5f5c3f2488d5cc56a48363cc, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.487
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b011da12b30532f46938f1933ce7f611, type: 3}
   m_Name: EnemyData_Bat
   m_EditorClassIdentifier: Assembly-CSharp::EnemyData
-  icon: {fileID: 21300000, guid: bc7e2a93de87aae4ea865735358f659a, type: 3}
+  icon: {fileID: 21300000, guid: 7de943203dd071741b556620bb1ac2f1, type: 3}
   enemyName: Bat
-  health: 50
+  health: 30
   mana: 10
-  attack: 100
+  attack: 10
   defense: 10
   specialAttack: 10
   specialDefense: 10
@@ -25,3 +25,4 @@ MonoBehaviour:
   speed: 100
   skills:
   - {fileID: 11400000, guid: 44db763bee556bf42ae9f6a01e8c2ca8, type: 2}
+  - {fileID: 11400000, guid: bb5f014b3ce72a440b3b17dae1efbbf6, type: 2}
