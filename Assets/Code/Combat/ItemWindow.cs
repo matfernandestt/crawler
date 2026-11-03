@@ -60,15 +60,18 @@ public class ItemWindow : MonoBehaviour
             if (amount <= 0)
                 continue;
 
-            var newButton = Instantiate(buttonPrefab, scrollViewContent);
-
-            newButton.SetText($"{item.itemName} x{amount}");
-            newButton.SetImage(item.itemIcon);
-
-            newButton.Button.onClick.AddListener(() =>
+            for (var i = 0; i < amount; i++)
             {
-                OnItemSelected?.Invoke(item);
-            });
+                var newButton = Instantiate(buttonPrefab, scrollViewContent);
+
+                newButton.SetText($"{item.itemName}");
+                newButton.SetImage(item.itemIcon);
+
+                newButton.Button.onClick.AddListener(() =>
+                {
+                    OnItemSelected?.Invoke(item);
+                });
+            }
         }
     }
 }
