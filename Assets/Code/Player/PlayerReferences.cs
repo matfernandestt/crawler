@@ -11,6 +11,8 @@ public class PlayerReferences : MonoBehaviour
     
     public static PlayerReferences Instance;
 
+    public static Action OnPlayerReady;
+
     private void Awake()
     {
         Instance = this;

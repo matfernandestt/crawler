@@ -14,6 +14,12 @@ public class PlayerMovement : MonoBehaviour
         _refs = GetComponent<PlayerReferences>();
     }
 
+    public void Teleport(Vector3 position, Quaternion rotation)
+    {
+        transform.position = position;
+        transform.rotation = rotation;
+    }
+
     private void Update()
     {
         if (_isMoving) return;
