@@ -15380,7 +15380,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8176936836053333426, guid: 46f534d22f6fefd4f96e7f89151313db, type: 3}
       propertyPath: m_text
-      value: FIGHT
+      value: SKILLS
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
