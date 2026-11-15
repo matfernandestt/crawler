@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b011da12b30532f46938f1933ce7f611, type: 3}
   m_Name: EnemyData_Bat
   m_EditorClassIdentifier: Assembly-CSharp::EnemyData
-  icon: {fileID: 21300000, guid: 7de943203dd071741b556620bb1ac2f1, type: 3}
+  icon: {fileID: 21300000, guid: 1127ee54cba02a94bbd86f2cce13930a, type: 3}
   enemyName: Bat
   health: 50
   mana: 50
