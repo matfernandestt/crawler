@@ -20,4 +20,6 @@ public class EnemyData : ScriptableObject
     public int speed;
 
     public SkillData[] skills;
+
+    [SerializeField, TextArea(15, 20)] private string description;
 }

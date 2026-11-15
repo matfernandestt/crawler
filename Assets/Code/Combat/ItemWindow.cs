@@ -7,6 +7,7 @@ public class ItemWindow : MonoBehaviour
     [SerializeField] private GameButton buttonPrefab;
     [SerializeField] private Transform scrollViewContent;
     [SerializeField] private GameButton backButton;
+    
 
     public Action<ItemData> OnItemSelected;
     public Action onBack;
