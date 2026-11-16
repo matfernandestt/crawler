@@ -26,3 +26,4 @@ MonoBehaviour:
   skills:
   - {fileID: 11400000, guid: 0319933eaed6b3f4ba7d656875dd2e5a, type: 2}
   - {fileID: 11400000, guid: bb5f014b3ce72a440b3b17dae1efbbf6, type: 2}
+  description: This simple beast grows in power if left unchecked.

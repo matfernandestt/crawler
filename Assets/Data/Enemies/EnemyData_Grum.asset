@@ -27,3 +27,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 44db763bee556bf42ae9f6a01e8c2ca8, type: 2}
   - {fileID: 11400000, guid: b68aac356ca0a7e4591a7b1bcaf50113, type: 2}
   - {fileID: 11400000, guid: 2ffabbaea8ee872459261b4fb8ba7024, type: 2}
+  description: 'This creature will put you to sleep and debuff your stats.
+
+
+    It''s
+    immune to [Sleep].'
