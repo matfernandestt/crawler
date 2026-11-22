@@ -12,14 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b011da12b30532f46938f1933ce7f611, type: 3}
   m_Name: EnemyData_Bat
   m_EditorClassIdentifier: Assembly-CSharp::EnemyData
-  icon: {fileID: 21300000, guid: 1127ee54cba02a94bbd86f2cce13930a, type: 3}
-  normalMap: {fileID: 2800000, guid: 9cfe4f10e47b95b4c94be464f1269c48, type: 3}
+  icon: {fileID: 21300000, guid: ec73777caf763394786db4cc9e885494, type: 3}
+  normalMap: {fileID: 2800000, guid: 09d41012ccfca924c85ffeb5e23a047e, type: 3}
   enemyName: Bat
   health: 50
   mana: 50
   attack: 25
   defense: 10
-  specialAttack: 10
+  specialAttack: 15
   specialDefense: 10
   evasion: 15
   accuracy: 100
@@ -27,6 +27,6 @@ MonoBehaviour:
   skills:
   - {fileID: 11400000, guid: 0319933eaed6b3f4ba7d656875dd2e5a, type: 2}
   - {fileID: 11400000, guid: bb5f014b3ce72a440b3b17dae1efbbf6, type: 2}
-  immunities: 02000000
+  immunities: 00000000
   possibleDropsOnDefeat: []
   description: 
