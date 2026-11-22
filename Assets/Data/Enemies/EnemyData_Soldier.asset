@@ -29,4 +29,10 @@ MonoBehaviour:
   - {fileID: 11400000, guid: ad37f06364c3dcc488ad20dc3e56ba63, type: 2}
   immunities: 0100000002000000
   possibleDropsOnDefeat: []
-  description: 
+  description: 'This is the vessel of an experienced fighter, possesses no mind or
+    flesh.
+
+
+    Immune to [Sleep]
+
+    Immune to [Debuff]'

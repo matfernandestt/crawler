@@ -30,4 +30,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 2ffabbaea8ee872459261b4fb8ba7024, type: 2}
   immunities: 01000000
   possibleDropsOnDefeat: []
-  description: 
+  description: 'This creature will put you to sleep and debuff your stats.
+
+
+    Immune
+    to [Sleep].'

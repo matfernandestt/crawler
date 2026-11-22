@@ -27,6 +27,7 @@ MonoBehaviour:
   skills:
   - {fileID: 11400000, guid: 44db763bee556bf42ae9f6a01e8c2ca8, type: 2}
   - {fileID: 11400000, guid: b68aac356ca0a7e4591a7b1bcaf50113, type: 2}
-  immunities: 01000000
+  immunities: 
   possibleDropsOnDefeat: []
-  description: 
+  description: This mage will put you to sleep and harm you, he's frail in body and
+    strong in mind.
