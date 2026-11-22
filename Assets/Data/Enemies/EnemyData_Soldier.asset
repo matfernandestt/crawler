@@ -27,6 +27,7 @@ MonoBehaviour:
   skills:
   - {fileID: 11400000, guid: c0dab93e5f520c2468db4ce87bf40ad8, type: 2}
   - {fileID: 11400000, guid: ad37f06364c3dcc488ad20dc3e56ba63, type: 2}
+  - {fileID: 11400000, guid: 2ffabbaea8ee872459261b4fb8ba7024, type: 2}
   immunities: 0100000002000000
   possibleDropsOnDefeat: []
   description: 'This is the vessel of an experienced fighter, possesses no mind or
