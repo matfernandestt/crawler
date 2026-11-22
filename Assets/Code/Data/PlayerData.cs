@@ -20,4 +20,7 @@ public class PlayerData : ScriptableObject
     public int speed;
 
     public SkillData[] skills;
+    
+    public int replenishHealthValue;
+    public int replenishManaValue;
 }

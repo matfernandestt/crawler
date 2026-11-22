@@ -17,4 +17,11 @@ public class HealItemAction : BaseItemAction
         var amountPerTurn = Mathf.CeilToInt((float)totalHealing / durationTurns);
         target.ApplyHealthRegen(amountPerTurn, durationTurns);
     }
+
+    public override void OverworldExecute(ItemData item)
+    {
+        var action = item.action as HealItemAction;
+        if (action == null) return;
+        PlayerReferences.Instance.attributes.AddHealthSteps(action.durationTurns, action.totalHealing);
+    }
 }

@@ -28,3 +28,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: b68aac356ca0a7e4591a7b1bcaf50113, type: 2}
   - {fileID: 11400000, guid: c0dab93e5f520c2468db4ce87bf40ad8, type: 2}
   - {fileID: 11400000, guid: bb5f014b3ce72a440b3b17dae1efbbf6, type: 2}
+  - {fileID: 11400000, guid: 2ffabbaea8ee872459261b4fb8ba7024, type: 2}
+  replenishHealthValue: 10
+  replenishManaValue: 15

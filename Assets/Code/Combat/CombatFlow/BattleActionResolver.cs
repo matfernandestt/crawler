@@ -25,16 +25,29 @@ public class BattleActionResolver
 
     private BattleActionResult ResolveSkill(BattleAction action, BattleContext context)
     {
-        if (action.Skill == null) return BattleActionResult.None;
-        if (action.Skill.action == null) return BattleActionResult.None;
-        if (!action.User.CanUseSkill(action.Skill.cost)) return BattleActionResult.NotEnoughMana;
+        if (action.Skill == null || action.Skill.action == null)
+            return BattleActionResult.None;
 
-        var effectiveAccuracy = Mathf.Clamp(action.Skill.accuracy - action.Target.Evasion, 0, 100);
+        if (action.Target == null || !action.Target.IsAlive)
+            return BattleActionResult.None;
+
+        if (!action.User.CanUseSkill(action.Skill.cost))
+            return BattleActionResult.NotEnoughMana;
+
+        action.User.TrySpendMana(action.Skill.cost);
+
+        if (action.Skill.effectType != SkillEffectType.None && action.Target.IsImmuneTo(action.Skill.effectType))
+        {
+            return BattleActionResult.Immune;
+        }
+
+        var effectiveAccuracy = Mathf.Clamp(action.Skill.accuracy + action.User.EffectiveAccuracy - action.Target.EffectiveEvasion, 0, 100);
+
         var accuracyRoll = Random.Range(0, 100);
+
         if (accuracyRoll >= effectiveAccuracy)
             return BattleActionResult.Missed;
 
-        action.User.TrySpendMana(action.Skill.cost);
         action.Skill.action.Execute(context, action.User, action.Target, action.Skill);
 
         return BattleActionResult.Success;
@@ -64,5 +77,6 @@ public enum BattleActionResult
     None,
     Success,
     Missed,
-    NotEnoughMana
+    NotEnoughMana,
+    Immune
 }

@@ -15,4 +15,6 @@ public class DamageItemAction : BaseItemAction
         if (target == null || !target.IsAlive) return;
         target.TakeDamage(damage);
     }
+
+    public override void OverworldExecute(ItemData item) { }
 }

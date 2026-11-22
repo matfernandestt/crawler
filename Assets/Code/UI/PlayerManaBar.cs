@@ -5,6 +5,7 @@ public class PlayerManaBar : HealthBar
     private void Start()
     {
         CombatManager.Instance.onSetupBattle += OnSetupBattle;
+        PlayerReferences.Instance.attributes.onRefreshAttributes += OnRefreshAttributes;
     }
 
     private void OnDestroy()
@@ -15,6 +16,7 @@ public class PlayerManaBar : HealthBar
         }
 
         CombatManager.Instance.onSetupBattle -= OnSetupBattle;
+        PlayerReferences.Instance.attributes.onRefreshAttributes -= OnRefreshAttributes;
     }
 
     private void OnSetupBattle(BattleContext ctx)
@@ -29,5 +31,10 @@ public class PlayerManaBar : HealthBar
     private void PlayerManaChanged(Combatant player, int damage)
     {
         SetValue(player.CurrentMana);
+    }
+    
+    private void OnRefreshAttributes()
+    {
+        SetValue(PlayerReferences.Instance.attributes.CurrentMana);
     }
 }

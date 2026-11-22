@@ -1,12 +1,12 @@
 using UnityEngine;
-using UnityEngine.UI;
 
 public class EnemyVisual : MonoBehaviour
 {
-    [SerializeField] private Image image;
+    [SerializeField] private Renderer rend;
 
     public void SetupEnemy(EnemyData data)
     {
-        image.sprite = data.icon;
+        rend.material.mainTexture = data.icon.texture;
+        rend.material.SetTexture("_BumpMap", data.normalMap);
     }
 }

@@ -5,11 +5,35 @@ public class DamageSkillAction : BaseSkillAction
 {
     public override void Execute(BattleContext context, Combatant user, Combatant target, SkillData skill)
     {
-        if (target == null || !target.IsAlive) return;
-        
+        if (user == null || !user.IsAlive)
+            return;
+
+        if (target == null || !target.IsAlive)
+            return;
+
+        int attack;
+        int defense;
+
+        switch (skill.damageType)
+        {
+            case SkillDamageType.Physical:
+                attack = user.EffectiveAttack;
+                defense = target.EffectiveDefense;
+                break;
+            case SkillDamageType.Special:
+                attack = user.EffectiveSpecialAttack;
+                defense = target.EffectiveSpecialDefense;
+                break;
+            default:
+                return;
+        }
+
+        var damage = Mathf.RoundToInt(skill.power * ((float)attack / Mathf.Max(1, defense)));
+        damage = Mathf.Max(1, damage);
+
         var previousHealth = target.CurrentHealth;
 
-        target.TakeDamage(skill.power);
+        target.TakeDamage(damage);
 
         var damageDealt = previousHealth - target.CurrentHealth;
 

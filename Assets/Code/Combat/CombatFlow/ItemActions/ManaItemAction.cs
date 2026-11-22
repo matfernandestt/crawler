@@ -17,4 +17,11 @@ public class ManaItemAction : BaseItemAction
         var amountPerTurn = Mathf.CeilToInt((float)totalManaRecovery / durationTurns);
         target.ApplyManaRegen(amountPerTurn, durationTurns);
     }
+    
+    public override void OverworldExecute(ItemData item)
+    {
+        var action = item.action as ManaItemAction;
+        if (action == null) return;
+        PlayerReferences.Instance.attributes.AddManaSteps(action.durationTurns, action.totalManaRecovery);
+    }
 }

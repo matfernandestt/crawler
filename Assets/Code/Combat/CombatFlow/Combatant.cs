@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class Combatant
@@ -39,18 +40,39 @@ public class Combatant
     public int ManaRegenTurns { get; private set; }
 
     public bool IsAlive => CurrentHealth > 0;
+    
+    public int DefenseModifier { get; private set; }
+    public int SpecialDefenseModifier { get; private set; }
+    public int EvasionModifier { get; private set; }
+
+    public int EffectiveDefense => Mathf.Max(0, Defense + DefenseModifier);
+    public int EffectiveSpecialDefense => Mathf.Max(0, SpecialDefense + SpecialDefenseModifier);
+    public int EffectiveEvasion => Mathf.Clamp(Evasion + EvasionModifier, 0, 100);
+    
+    public int AttackModifier { get; private set; }
+    public int SpecialAttackModifier { get; private set; }
+    public int AccuracyModifier { get; private set; }
+
+    public int EffectiveAttack => Mathf.Max(0, Attack + AttackModifier);
+    public int EffectiveSpecialAttack => Mathf.Max(0, SpecialAttack + SpecialAttackModifier);
+    public int EffectiveAccuracy => Mathf.Clamp(Accuracy + AccuracyModifier, 0, 100);
+    
+    private readonly HashSet<SkillEffectType> _immunities = new();
+
+    public ItemData[] PossibleDrops;
 
     public event Action<Combatant, int> OnTakeDamage;
     public event Action<Combatant, int> OnChangeMana;
     public event Action<Combatant, int> OnHeal;
     public event Action<Combatant> OnFainted;
+    public event Action<Combatant> OnStatsLowered;
 
-    public Combatant(Sprite sprite, string name, int health, int mana, int attack, int defense, int specialAttack, int specialDefense, int evasion, int accuracy, int speed, SkillData[] skills)
+    public Combatant(Sprite sprite, string name, int maxHealth, int health, int maxMana, int mana, int attack, int defense, int specialAttack, int specialDefense, int evasion, int accuracy, int speed, SkillData[] skills, SkillEffectType[] immunities = null, ItemData[] possibleDrops = null)
     {
         Name = name;
-        MaxHealth = health;
+        MaxHealth = maxHealth;
         CurrentHealth = health;
-        MaxMana = mana;
+        MaxMana = maxMana;
         CurrentMana = mana;
         Attack = attack;
         Defense = defense;
@@ -60,6 +82,21 @@ public class Combatant
         Accuracy = accuracy;
         Speed = speed;
         Skills = skills;
+
+        if (immunities != null)
+        {
+            foreach (var immunity in immunities)
+            {
+                _immunities.Add(immunity);
+            }
+        }
+
+        PossibleDrops = possibleDrops;
+    }
+    
+    public bool IsImmuneTo(SkillEffectType effect)
+    {
+        return _immunities.Contains(effect);
     }
     
     public bool CanHeal(int amount)
@@ -91,9 +128,7 @@ public class Combatant
 
         var previousHealth = CurrentHealth;
 
-        CurrentHealth = Mathf.Min(
-            MaxHealth,
-            CurrentHealth + amount);
+        CurrentHealth = Mathf.Min(MaxHealth, CurrentHealth + amount);
 
         var healedAmount = CurrentHealth - previousHealth;
 
@@ -150,6 +185,31 @@ public class Combatant
     {
         IsCountering = false;
         CounterDamageMultiplier = 0f;
+    }
+    
+    public void ReduceDefenses(int defense, int specialDefense, int evasion)
+    {
+        if (!IsAlive)
+            return;
+
+        DefenseModifier -= Mathf.Max(0, defense);
+        SpecialDefenseModifier -= Mathf.Max(0, specialDefense);
+        EvasionModifier -= Mathf.Max(0, evasion);
+        OnStatsLowered?.Invoke(this);
+    }
+    
+    public void IncreaseAllStats(int attack, int defense, int specialAttack, int specialDefense, int evasion, int accuracy, int speed)
+    {
+        if (!IsAlive)
+            return;
+
+        AttackModifier += Mathf.Max(0, attack);
+        DefenseModifier += Mathf.Max(0, defense);
+        SpecialAttackModifier += Mathf.Max(0, specialAttack);
+        SpecialDefenseModifier += Mathf.Max(0, specialDefense);
+        EvasionModifier += Mathf.Max(0, evasion);
+        AccuracyModifier += Mathf.Max(0, accuracy);
+        SpeedModifier += Mathf.Max(0, speed);
     }
     
     public void ApplySleep(int turns)

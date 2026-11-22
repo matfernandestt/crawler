@@ -1,6 +1,8 @@
 using System;
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class CombatManager : MonoBehaviour
 {
@@ -215,7 +217,7 @@ public class CombatManager : MonoBehaviour
 
         var playerTransform = PlayerReferences.Instance.transform;
         enemyVisual.gameObject.SetActive(true);
-        enemyVisual.transform.position = playerTransform.position + (playerTransform.forward * 10f) + Vector3.up * 2f;
+        enemyVisual.transform.position = playerTransform.position + (playerTransform.forward * 5f) + Vector3.up * 2f;
         enemyVisual.transform.forward =  playerTransform.forward;
     }
 
@@ -335,12 +337,27 @@ public class CombatManager : MonoBehaviour
     {
         actions.SetAllButtonsInteractability(false);
 
+        var player = PlayerReferences.Instance.attributes;
+        player.SetCurrentHealth(_battleContext.Player.CurrentHealth);
+        player.SetCurrentMana(_battleContext.Player.CurrentMana);
+
         switch (outcome)
         {
             case BattleOutcome.Victory:
+                player.ReplenishHealthAndMana(player.GetData.replenishHealthValue, player.GetData.replenishManaValue);
+                
+                var rewards = new List<ItemData>();
+                rewards.AddRange(_battleContext.Enemy.PossibleDrops);
+                for (var i = 0; i < 10; i++)
+                {
+                    rewards.Add(null);
+                }
+                var selectedReward = rewards[Random.Range(0, rewards.Count)];
+                if(selectedReward != null)
+                    PlayerInventory.Instance.Inventory.Add(selectedReward);
+                
                 messages.SetMessage("Enemy defeated!", ExitCombat);
                 break;
-
             case BattleOutcome.Defeat:
                 messages.SetMessage("You were defeated!", ExitCombat);
                 break;

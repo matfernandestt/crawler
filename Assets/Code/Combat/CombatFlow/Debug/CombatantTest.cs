@@ -8,8 +8,8 @@ public class CombatantTest : MonoBehaviour
 
     private void Start()
     {
-        Combatant player = CombatantFactory.CreatePlayer(playerData);
-        Combatant enemy = CombatantFactory.CreateEnemy(enemyData);
+        var player = CombatantFactory.CreatePlayer(playerData);
+        var enemy = CombatantFactory.CreateEnemy(enemyData);
 
         var battle = new BattleContext(player, enemy);
         var action = new BattleAction(player, enemy, BattleActionType.Skill, testSkill);

@@ -4,6 +4,7 @@ using UnityEngine;
 public class EnemyData : ScriptableObject
 {
     public Sprite icon;
+    public Texture2D normalMap;
     public string enemyName;
 
     public int health;
@@ -20,6 +21,10 @@ public class EnemyData : ScriptableObject
     public int speed;
 
     public SkillData[] skills;
+    
+    public SkillEffectType[] immunities;
+    
+    public ItemData[] possibleDropsOnDefeat;
 
     [SerializeField, TextArea(15, 20)] private string description;
 }

@@ -9,7 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6182ecc9d49fdca4da4068aa6a147f8b, type: 3}
-  m_Name: CurseDeboostSkillAction
-  m_EditorClassIdentifier: Assembly-CSharp::SpeedBoostSkillAction
-  speedIncrease: 999
+  m_Script: {fileID: 11500000, guid: f1b0b4489df19654fb9196f19ccaa224, type: 3}
+  m_Name: CurseSkillAction
+  m_EditorClassIdentifier: Assembly-CSharp::CurseSkillAction
+  defenseReduction: 10
+  specialDefenseReduction: 10
+  evasionReduction: 10

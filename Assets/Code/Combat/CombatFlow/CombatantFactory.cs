@@ -2,11 +2,14 @@ public static class CombatantFactory
 {
     public static Combatant CreatePlayer(PlayerData data)
     {
+        var player = PlayerReferences.Instance.attributes;
         return new Combatant(
             data.sprite,
             data.playerName,
-            data.health,
-            data.mana,
+            player.GetData.health,
+            player.CurrentHealth,
+            player.GetData.mana,
+            player.CurrentMana,
             data.attack,
             data.defense,
             data.specialAttack,
@@ -23,6 +26,8 @@ public static class CombatantFactory
             data.icon,
             data.enemyName,
             data.health,
+            data.health,
+            data.mana,
             data.mana,
             data.attack,
             data.defense,
@@ -31,6 +36,8 @@ public static class CombatantFactory
             data.evasion,
             data.accuracy,
             data.speed,
-            data.skills);
+            data.skills,
+            data.immunities,
+            data.possibleDropsOnDefeat);
     }
 }

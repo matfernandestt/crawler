@@ -12,9 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a7e3f6e8ab93054f9611046f370cda7, type: 3}
   m_Name: SkillData_006_Curse
   m_EditorClassIdentifier: Assembly-CSharp::SkillData
-  skillName: Stance
+  skillName: Curse
+  damageType: 1
   power: 0
   accuracy: 100
   cost: 20
   priority: 0
-  action: {fileID: 11400000, guid: f9adfc6dc19e6f041974fbcc1479d117, type: 2}
+  action: {fileID: 11400000, guid: b0ec8832380bfe74889ce28d15d163d1, type: 2}
+  effectType: 2

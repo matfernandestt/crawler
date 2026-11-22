@@ -5,14 +5,9 @@ public class BattleContext
 
     public bool IsRunSuccessful { get; private set; }
 
-    public bool IsFinished =>
-        IsRunSuccessful ||
-        !Player.IsAlive ||
-        !Enemy.IsAlive;
+    public bool IsFinished => IsRunSuccessful || !Player.IsAlive || !Enemy.IsAlive;
 
-    public BattleContext(
-        Combatant player,
-        Combatant enemy)
+    public BattleContext(Combatant player, Combatant enemy)
     {
         Player = player;
         Enemy = enemy;

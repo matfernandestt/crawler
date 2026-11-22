@@ -97,10 +97,7 @@ public class BattleController
     public IEnumerator ResolveTurn()
     {
         if (_selectedPlayerAction == null)
-        {
-            Debug.LogError("No player action was submitted.");
             yield break;
-        }
 
         var playerAction = ConsumePlayerAction();
 
@@ -108,26 +105,19 @@ public class BattleController
         {
             OnActionStarted?.Invoke(playerAction);
 
-            if (_presentAction != null)
-                yield return _presentAction(playerAction);
+            yield return _presentAction(playerAction);
 
-            _actionResolver.Resolve(
-                playerAction,
-                Context);
+            _actionResolver.Resolve(playerAction, Context);
 
             OnActionResolved?.Invoke(playerAction);
 
-            var outcome = Context.GetOutcome();
-
-            if (outcome != BattleOutcome.None)
-            {
-                OnBattleFinished?.Invoke(outcome);
-            }
+            OnBattleFinished?.Invoke(Context.GetOutcome());
 
             yield break;
         }
 
         BattleAction enemyAction = null;
+
         if (Context.Enemy.CanAct)
         {
             enemyAction = _enemyActionSelector.SelectAction(Context.Enemy, Context.Player);
@@ -135,6 +125,7 @@ public class BattleController
             if (enemyAction == null)
             {
                 Debug.LogError($"Enemy {Context.Enemy.Name} has no available skills.");
+
                 yield break;
             }
         }
@@ -157,6 +148,9 @@ public class BattleController
             if (Context.IsFinished)
                 break;
 
+            if (action == null)
+                continue;
+
             OnActionStarted?.Invoke(action);
 
             if (_presentAction != null)
@@ -175,15 +169,22 @@ public class BattleController
             {
                 yield return PresentMessage($"{action.User.Name} doesn't have enough mana!");
             }
+            else if (result == BattleActionResult.Immune)
+            {
+                yield return PresentMessage($"{action.Target.Name} is immune to {action.Skill.skillName}!");
+            }
+
+            if (result == BattleActionResult.Success && action.Type == BattleActionType.Skill && action.Skill != null && action.Skill.action is CurseSkillAction)
+            {
+                yield return PresentMessage($"{action.Target.Name}'s defensive stats were lowered!");
+            }
 
             OnActionResolved?.Invoke(action);
         }
 
-        var battleOutcome = Context.GetOutcome();
-
-        if (battleOutcome != BattleOutcome.None)
+        if (Context.IsFinished)
         {
-            OnBattleFinished?.Invoke(battleOutcome);
+            OnBattleFinished?.Invoke(Context.GetOutcome());
         }
     }
 }

@@ -119,7 +119,11 @@ public class PlayerMovement : MonoBehaviour
         if (exitInDirection)
         {
             _refs.input.SetBlockMovement(true);
-            TransitionManager.Instance.Fade(()=>{SceneManager.LoadScene(SceneManager.GetActiveScene().name);},()=>{});
+            TransitionManager.Instance.Fade(()=>{SceneManager.LoadScene("SCN_ChangingFloors");},()=>{});
+        }
+        else
+        {
+            _refs.attributes.ProcessStep();
         }
     }
 

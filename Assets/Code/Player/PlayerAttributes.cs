@@ -8,18 +8,18 @@ public class PlayerAttributes : MonoBehaviour
     private PlayerReferences _refs;
     
     public int CurrentHealth { get; private set; }
-    public int BonusHealth { get; private set; }
-    
-    public int CurrentAccuracy { get; private set; }
-    public int BonusSpeed { get; private set; }
-    
-    public int CurrentEvasion { get; private set; }
-    public int BonusEvasion { get; private set; }
+    public int CurrentMana { get; private set; }
+
+    private int _healthStepsRemaining;
+    private int _manaStepsRemaining;
+
+    private int _activeHealthPotionHealing;
+    private int _activeManaPotionHealing;
     
     public PlayerData GetData => data;
 
-    public Action OnRefreshHealth;
-    public Action OnDeath;
+    public Action onRefreshAttributes;
+    public Action onProcessStep;
     
     private void Awake()
     {
@@ -33,32 +33,52 @@ public class PlayerAttributes : MonoBehaviour
 
     private void SetupData()
     {
-        CurrentHealth = data.health;
-        CurrentAccuracy = data.accuracy;
-        CurrentEvasion = data.evasion;
+        SetCurrentHealth(data.health);
+        SetCurrentMana(data.mana);
     }
 
-    public void TakeDamage(int damage)
+    public void SetCurrentHealth(int value)
     {
-        if (BonusHealth >= damage)
-        {
-            BonusHealth -= damage;
-        }
-        else
-        {
-            var remainingDamage = damage - BonusHealth;
-            BonusHealth = 0;
-            CurrentHealth = Mathf.Max(0, CurrentHealth - remainingDamage);
-        }
-
-        if (CurrentHealth > 0)
-            OnRefreshHealth?.Invoke();
-        else
-            OnDeath?.Invoke();
+        CurrentHealth = value;
+        onRefreshAttributes?.Invoke();
     }
 
-    public void AddBonusEvasion(int addedEvasion)
+    public void SetCurrentMana(int value)
     {
-        BonusEvasion += addedEvasion;
+        CurrentMana = value;
+        onRefreshAttributes?.Invoke();
+    }
+
+    public void ReplenishHealthAndMana(int replenishHealthValue, int replenishManaValue)
+    {
+        SetCurrentHealth(CurrentHealth + replenishHealthValue);
+        SetCurrentMana(CurrentMana + replenishManaValue);
+    }
+
+    public void ProcessStep()
+    {
+        if(_healthStepsRemaining > 0)
+        {
+            SetCurrentHealth(CurrentHealth + _activeHealthPotionHealing);
+            _healthStepsRemaining--;
+        }
+        if (_manaStepsRemaining > 0)
+        {
+            SetCurrentMana(CurrentMana + _activeManaPotionHealing);
+            _manaStepsRemaining--;
+        }
+        onProcessStep?.Invoke();
+    }
+
+    public void AddHealthSteps(int steps, int totalHealth)
+    {
+        _healthStepsRemaining = steps;
+        _activeHealthPotionHealing = totalHealth;
+    }
+    
+    public void AddManaSteps(int steps, int totalMana)
+    {
+        _manaStepsRemaining = steps;
+        _activeManaPotionHealing = totalMana;
     }
 }
