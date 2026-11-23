@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b011da12b30532f46938f1933ce7f611, type: 3}
   m_Name: EnemyData_Soldier
   m_EditorClassIdentifier: Assembly-CSharp::EnemyData
-  icon: {fileID: 21300000, guid: 442e12e7b68e08d44b072ed20975736b, type: 3}
-  normalMap: {fileID: 2800000, guid: f49db5f6b807a324da4059f4181cb245, type: 3}
+  icon: {fileID: 21300000, guid: 83a20b75c5b8e7a479d980fce91c5e61, type: 3}
+  normalMap: {fileID: 2800000, guid: 2a1057559ca07a34b92dce3518e7aebe, type: 3}
   enemyName: Skeleton Soldier
   health: 75
   mana: 100
@@ -27,9 +27,11 @@ MonoBehaviour:
   skills:
   - {fileID: 11400000, guid: c0dab93e5f520c2468db4ce87bf40ad8, type: 2}
   - {fileID: 11400000, guid: ad37f06364c3dcc488ad20dc3e56ba63, type: 2}
-  - {fileID: 11400000, guid: 2ffabbaea8ee872459261b4fb8ba7024, type: 2}
   immunities: 0100000002000000
-  possibleDropsOnDefeat: []
+  possibleDropsOnDefeat:
+  - {fileID: 11400000, guid: 2c9c0d7fdba6d724b88bbea0b096cf2b, type: 2}
+  - {fileID: 11400000, guid: 179841326f3a6b34da513277834e3b3b, type: 2}
+  - {fileID: 11400000, guid: 6746066b02309914b9c881e141feff88, type: 2}
   description: 'This is the vessel of an experienced fighter, possesses no mind or
     flesh.
 

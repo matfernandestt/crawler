@@ -16,10 +16,10 @@ MonoBehaviour:
   playerName: Dancer
   health: 100
   mana: 200
-  attack: 45
-  defense: 45
-  specialAttack: 110
-  specialDefense: 100
+  attack: 30
+  defense: 30
+  specialAttack: 50
+  specialDefense: 50
   evasion: 10
   accuracy: 100
   speed: 0
