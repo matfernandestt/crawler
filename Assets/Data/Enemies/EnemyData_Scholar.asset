@@ -19,11 +19,11 @@ MonoBehaviour:
   mana: 200
   attack: 5
   defense: 5
-  specialAttack: 30
-  specialDefense: 30
+  specialAttack: 25
+  specialDefense: 25
   evasion: 20
   accuracy: 100
-  speed: 50
+  speed: 20
   skills:
   - {fileID: 11400000, guid: 44db763bee556bf42ae9f6a01e8c2ca8, type: 2}
   - {fileID: 11400000, guid: b68aac356ca0a7e4591a7b1bcaf50113, type: 2}

@@ -13,16 +13,16 @@ MonoBehaviour:
   m_Name: PlayerData_Fighter
   m_EditorClassIdentifier: Assembly-CSharp::PlayerData
   sprite: {fileID: 0}
-  playerName: Fighter
+  playerName: Player
   health: 100
-  mana: 100
-  attack: 100
-  defense: 90
+  mana: 200
+  attack: 25
+  defense: 25
   specialAttack: 50
-  specialDefense: 60
+  specialDefense: 35
   evasion: 10
   accuracy: 100
-  speed: 0
+  speed: 20
   skills:
   - {fileID: 11400000, guid: 44db763bee556bf42ae9f6a01e8c2ca8, type: 2}
   - {fileID: 11400000, guid: b68aac356ca0a7e4591a7b1bcaf50113, type: 2}
@@ -30,5 +30,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: bb5f014b3ce72a440b3b17dae1efbbf6, type: 2}
   - {fileID: 11400000, guid: ad37f06364c3dcc488ad20dc3e56ba63, type: 2}
   - {fileID: 11400000, guid: 2ffabbaea8ee872459261b4fb8ba7024, type: 2}
+  - {fileID: 11400000, guid: 0319933eaed6b3f4ba7d656875dd2e5a, type: 2}
   replenishHealthValue: 20
-  replenishManaValue: 5
+  replenishManaValue: 30

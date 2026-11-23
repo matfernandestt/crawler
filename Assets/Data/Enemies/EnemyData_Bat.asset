@@ -15,18 +15,18 @@ MonoBehaviour:
   icon: {fileID: 21300000, guid: acdb178e0496f3345a7d6423b91de612, type: 3}
   normalMap: {fileID: 2800000, guid: 069c2c547d1f94243a5941636911becf, type: 3}
   enemyName: Bat
-  health: 75
+  health: 100
   mana: 50
   attack: 25
-  defense: 10
-  specialAttack: 10
-  specialDefense: 15
+  defense: 25
+  specialAttack: 15
+  specialDefense: 20
   evasion: 15
   accuracy: 100
-  speed: 100
+  speed: 50
   skills:
   - {fileID: 11400000, guid: 0319933eaed6b3f4ba7d656875dd2e5a, type: 2}
-  - {fileID: 11400000, guid: bb5f014b3ce72a440b3b17dae1efbbf6, type: 2}
+  - {fileID: 11400000, guid: b54bc5f62afe66f499fb330d1a4d653c, type: 2}
   immunities: 
   possibleDropsOnDefeat:
   - {fileID: 11400000, guid: 179841326f3a6b34da513277834e3b3b, type: 2}

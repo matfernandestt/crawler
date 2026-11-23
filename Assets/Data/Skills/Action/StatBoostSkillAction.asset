@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8fe23d7bfeadd794498e7ecfcfaa359d, type: 3}
   m_Name: StatBoostSkillAction
   m_EditorClassIdentifier: Assembly-CSharp::StatBoostSkillAction
-  attackBoost: 10
-  specialAttackBoost: 10
-  accuracyBoost: 10
-  defenseBoost: 10
-  specialDefenseBoost: 10
-  evasionBoost: 10
-  speedBoost: 10
+  attackBoost: 20
+  specialAttackBoost: 20
+  accuracyBoost: 20
+  defenseBoost: 20
+  specialDefenseBoost: 20
+  evasionBoost: 20
+  speedBoost: 20
